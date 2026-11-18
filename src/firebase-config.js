@@ -42,7 +42,7 @@ export const firebaseConfig = {
  * This is a public site key, not a secret — but never put a *secret* key
  * or any debug token string here.
  */
-export const RECAPTCHA_V3_SITE_KEY = "";
+export const RECAPTCHA_V3_SITE_KEY = "6LckoyYuAAAAABwAL0z2LeBaZ6tDTkV9p2kenG4D";
 
 /** Link shown by the UI help text for Firebase setup. */
 export const FIREBASE_SETUP_URL = "https://console.firebase.google.com/";

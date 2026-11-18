@@ -174,9 +174,11 @@ function tryInitAppCheck(app) {
     return;
   }
   try {
-    if (isDevEnvironment()) {
+    if (isDevEnvironment() && !self.FIREBASE_APPCHECK_DEBUG_TOKEN) {
       // Dev only, real config only (this function is never called in demo
       // mode). Boolean flag — Firebase generates/prints a debug token.
+      // If a debug-token string is already set (e.g. injected by a test
+      // harness), keep it so the same token is reused across runs.
       self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
     }
     initializeAppCheck(app, {
