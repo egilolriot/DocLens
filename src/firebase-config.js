@@ -26,13 +26,13 @@
 // (extractive summaries, clearly labelled — see src/ai.js).
 
 export const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID",
-  measurementId: "YOUR_MEASUREMENT_ID",
+  apiKey: "AIzaSyC_ZLhxh3lf85fA151dB9uM2jBYiRbyd2A",
+  authDomain: "doclens-f2998.firebaseapp.com",
+  projectId: "doclens-f2998",
+  storageBucket: "doclens-f2998.firebasestorage.app",
+  messagingSenderId: "932045050708",
+  appId: "1:932045050708:web:2cc6990497a84093776ec1",
+  measurementId: "G-8M8VMFZW77",
 };
 
 /**
