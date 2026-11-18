@@ -1,0 +1,372 @@
+/* DocLens — clean, professional, light theme. System font stack. */
+
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --text: #1a1d21;
+  --text-muted: #5b6470;
+  --border: #d9dee4;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-contrast: #ffffff;
+  --focus-ring: #2563eb;
+  --danger: #b91c1c;
+  --danger-bg: #fef2f2;
+  --badge-on-device-bg: #dcfce7;
+  --badge-on-device-text: #166534;
+  --badge-cloud-bg: #dbeafe;
+  --badge-cloud-text: #1d4ed8;
+  --badge-demo-bg: #e5e7eb;
+  --badge-demo-text: #4b5563;
+  --radius: 10px;
+  --shadow: 0 1px 3px rgb(0 0 0 / 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+/* ---------- Header ---------- */
+
+.app-header { margin-bottom: 1.25rem; }
+
+.brand { display: flex; align-items: center; gap: 0.75rem; }
+
+.logo {
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+}
+
+.tagline { margin: 0; color: var(--text-muted); font-size: 0.95rem; }
+
+/* ---------- Cards & sections ---------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.card h2 { margin: 0 0 0.75rem; font-size: 1.15rem; }
+.card h3 { margin: 1rem 0 0.5rem; font-size: 1rem; }
+
+/* ---------- Status banner & errors ---------- */
+
+.status-banner {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  background: var(--badge-cloud-bg);
+  color: var(--badge-cloud-text);
+  border: 1px solid #bfdbfe;
+}
+
+.status-banner.is-demo {
+  background: var(--badge-demo-bg);
+  color: var(--badge-demo-text);
+  border-color: #d1d5db;
+}
+
+.status-banner.is-live {
+  background: var(--badge-on-device-bg);
+  color: var(--badge-on-device-text);
+  border-color: #bbf7d0;
+}
+
+.error-message {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  background: var(--danger-bg);
+  color: var(--danger);
+  border: 1px solid #fecaca;
+  font-size: 0.95rem;
+}
+
+/* ---------- Upload / paste ---------- */
+
+.drop-zone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.drop-zone:hover,
+.drop-zone:focus-visible,
+.drop-zone.drag-over {
+  border-color: var(--accent);
+  background: #eff6ff;
+  outline: none;
+}
+
+.drop-zone-text { margin: 0 0 0.75rem; color: var(--text-muted); }
+
+.browse-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.browse-btn:hover { background: var(--accent-hover); }
+
+.formats-note { margin: 0.75rem 0 0; font-size: 0.85rem; color: var(--text-muted); }
+
+.file-name { margin: 0.75rem 0 0; font-size: 0.9rem; color: var(--text-muted); }
+
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  resize: vertical;
+}
+
+textarea:focus-visible,
+button:focus-visible,
+.drop-zone:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* ---------- Document info & actions ---------- */
+
+.doc-info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.route-indicator { font-weight: 600; }
+.route-indicator.on-device { color: var(--badge-on-device-text); }
+.route-indicator.cloud { color: var(--badge-cloud-text); }
+
+.summarize-btn {
+  display: block;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.summarize-btn:hover:not(:disabled) { background: var(--accent-hover); }
+
+.summarize-btn:disabled {
+  background: #cbd5e1;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+/* ---------- Progress ---------- */
+
+.progress-area { margin-bottom: 1rem; }
+
+.progress-track {
+  height: 10px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 0.2s ease;
+}
+
+.progress-label { margin: 0.5rem 0 0; font-size: 0.9rem; color: var(--text-muted); }
+
+/* ---------- Result ---------- */
+
+.result-panel[hidden] { display: none; }
+
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.result-header h2 { margin: 0; }
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badge-on-device { background: var(--badge-on-device-bg); color: var(--badge-on-device-text); }
+.badge-cloud      { background: var(--badge-cloud-bg);      color: var(--badge-cloud-text); }
+.badge-demo       { background: var(--badge-demo-bg);       color: var(--badge-demo-text); }
+
+.summary-text { white-space: pre-wrap; }
+
+.key-points { margin: 0; padding-left: 1.25rem; }
+.key-points li { margin-bottom: 0.35rem; }
+
+.result-meta {
+  margin: 1rem 0 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+}
+
+/* ---------- History ---------- */
+
+.history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.history-header h2 { margin: 0; }
+
+.clear-btn {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--danger);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.clear-btn:hover { background: var(--danger-bg); }
+
+.history-list { list-style: none; margin: 0.75rem 0 0; padding: 0; }
+
+.history-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.history-item:first-child { border-top: none; }
+
+.history-item-btn {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.history-item-btn:hover .history-title { color: var(--accent); }
+
+.history-title {
+  display: block;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history-meta { display: block; font-size: 0.85rem; color: var(--text-muted); }
+
+.history-delete {
+  flex-shrink: 0;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: var(--danger);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.history-delete:hover { background: var(--danger-bg); }
+
+.history-empty { margin: 0.75rem 0 0; color: var(--text-muted); font-size: 0.95rem; }
+
+/* ---------- Footer ---------- */
+
+.app-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.app-footer p { margin: 0.25rem 0; }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 560px) {
+  .app { padding: 1rem 0.75rem 2.5rem; }
+  .brand h1 { font-size: 1.5rem; }
+  .card { padding: 1rem; }
+  .doc-info { font-size: 0.9rem; }
+}

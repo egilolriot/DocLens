@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DocLens — privacy-first document summaries, on-device first." />
+  <title>DocLens — Private Document Summaries</title>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">◉</span>
+        <div>
+          <h1>DocLens</h1>
+          <p class="tagline">Private document summaries — on-device first</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Status banner: live / demo mode messaging, set by main.js -->
+      <div id="status-banner" class="status-banner" role="status" aria-live="polite">
+        Checking AI availability…
+      </div>
+
+      <!-- Error area: visible on any failure, never a silent fail -->
+      <div id="error-message" class="error-message" role="alert" hidden></div>
+
+      <section class="card" aria-labelledby="upload-heading">
+        <h2 id="upload-heading">Upload a document</h2>
+        <div id="drop-zone" class="drop-zone" tabindex="0" role="button"
+             aria-label="Drop a document here or press Enter to browse files">
+          <p class="drop-zone-text">Drag &amp; drop your document here, or</p>
+          <label class="browse-btn" for="file-input">Browse files</label>
+          <input type="file" id="file-input" accept=".txt,.md,.pdf" hidden />
+          <p class="formats-note">Supported formats: .txt, .md, .pdf</p>
+        </div>
+        <p id="file-name" class="file-name" hidden></p>
+      </section>
+
+      <section class="card" aria-labelledby="paste-heading">
+        <h2 id="paste-heading">Or paste text</h2>
+        <label class="visually-hidden" for="paste-area">Paste your document text here</label>
+        <textarea id="paste-area" rows="10"
+          placeholder="Paste the text you want summarized here…"></textarea>
+      </section>
+
+      <!-- Document info: word count + routing decision -->
+      <div class="doc-info" aria-live="polite">
+        <span id="word-count">0 words</span>
+        <span id="route-indicator" class="route-indicator">No document loaded</span>
+      </div>
+
+      <button id="summarize-btn" class="summarize-btn" type="button" disabled>
+        Summarize
+      </button>
+
+      <!-- Progress: shown while the on-device model downloads / summary runs -->
+      <div id="progress-area" class="progress-area" hidden>
+        <div class="progress-track">
+          <div id="progress-bar" class="progress-bar" role="progressbar"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width: 0%"></div>
+        </div>
+        <p id="progress-label" class="progress-label">Working…</p>
+      </div>
+
+      <!-- Result panel: hidden until a summary is produced -->
+      <section id="result-panel" class="card result-panel" aria-labelledby="result-heading" hidden>
+        <div class="result-header">
+          <h2 id="result-heading">Summary</h2>
+          <span id="inference-badge" class="badge badge-demo">Demo</span>
+        </div>
+        <p id="summary-text" class="summary-text"></p>
+        <h3>Key points</h3>
+        <ul id="key-points" class="key-points"></ul>
+        <p class="result-meta">
+          <span id="reading-time"></span>
+          <span id="model-used"></span>
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="history-heading">
+        <div class="history-header">
+          <h2 id="history-heading">History</h2>
+          <button id="clear-history" class="clear-btn" type="button">Clear history</button>
+        </div>
+        <ul id="history-list" class="history-list"></ul>
+        <p id="history-empty" class="history-empty">No summaries yet. Your summaries will appear here.</p>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>Your document never leaves your device when summarized on-device.</p>
+      <p class="footer-sub">DocLens — built for #BuildHybridAI 2026.</p>
+    </footer>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
