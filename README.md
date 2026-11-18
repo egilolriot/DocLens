@@ -20,7 +20,7 @@ anything. DocLens does the opposite:
    (the Prompt API / `LanguageModel` in Chrome). No network request, no
    server copy, and it works offline once the model is downloaded.
 3. **Long documents use the cloud — and say so.** Documents over 2,000 words
-   go to the cloud model (`gemini-2.5-flash`) via Firebase AI Logic, because
+   go to the cloud model (`gemini-3.5-flash-lite`) via Firebase AI Logic, because
    long context needs a larger model. The inference badge on every result
    always shows where the summary came from: **On-device**, **Cloud**, or
    **Demo**.
@@ -33,7 +33,7 @@ anything. DocLens does the opposite:
 | Document | Route | Model | Where it runs |
 | --- | --- | --- | --- |
 | ≤ 2,000 words | On-device | Gemini Nano (via Firebase AI Logic) | In your browser |
-| > 2,000 words | Cloud | `gemini-2.5-flash` (via Firebase AI Logic) | Google Cloud |
+| > 2,000 words | Cloud | `gemini-3.5-flash-lite` (via Firebase AI Logic) | Google Cloud |
 
 The routing decision is made locally by `routeForDocument()` in
 [`src/docs.js`](src/docs.js) from the word count alone — the text itself is
@@ -210,7 +210,7 @@ Verified working end-to-end (see `tests/verify-deep.mjs`):
 
 - [Vite](https://vite.dev/) — dev server and production build
 - [Firebase AI Logic](https://firebase.google.com/docs/vertex-ai)
-  (Firebase JS SDK) — on-device Gemini Nano and cloud `gemini-2.5-flash`
+  (Firebase JS SDK) — on-device Gemini Nano and cloud `gemini-3.5-flash-lite`
 - [pdf.js](https://mozilla.github.io/pdf.js/) (`pdfjs-dist`) — in-browser
   PDF text extraction
 - [Playwright](https://playwright.dev/) — browser smoke test

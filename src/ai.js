@@ -6,7 +6,7 @@
 //     (InferenceMode.PREFER_ON_DEVICE). The device model is downloaded on
 //     first use, so initializeDeviceModel() must run after a user gesture
 //     (the Summarize click) and before generateContent().
-//   - long docs -> cloud gemini-2.5-flash (InferenceMode.PREFER_IN_CLOUD,
+//   - long docs -> cloud gemini-3.5-flash-lite (InferenceMode.PREFER_IN_CLOUD,
 //     Gemini Developer API backend — free tier, no billing).
 //
 // If no real Firebase config is present (src/firebase-config.js still has
@@ -81,7 +81,7 @@ import {
 export const WORD_LIMIT_ON_DEVICE = 2000;
 
 /** Cloud model used for long documents. */
-const CLOUD_MODEL = "gemini-2.5-flash";
+const CLOUD_MODEL = "gemini-3.5-flash-lite";
 
 /** Words-per-minute used for the reading-time estimate. */
 const WORDS_PER_MINUTE = 200;
@@ -369,7 +369,7 @@ export function initAI() {
  * @returns {Promise<{summary, keyPoints, readingMinutes, inferenceSource,
  *   modelUsed, wordCount}>}
  *   inferenceSource: 'on_device' | 'in_cloud' | 'demo'.
- *   modelUsed: 'gemini-nano (on-device)' | 'gemini-2.5-flash (cloud)' |
+ *   modelUsed: 'gemini-nano (on-device)' | 'gemini-3.5-flash-lite (cloud)' |
  *   'demo (extractive, no AI)'.
  */
 export async function summarize(text, onProgress) {
@@ -451,7 +451,7 @@ export async function summarize(text, onProgress) {
       modelUsed:
         inferenceSource === "on_device"
           ? "gemini-nano (on-device)"
-          : "gemini-2.5-flash (cloud)",
+          : "gemini-3.5-flash-lite (cloud)",
       wordCount,
     };
   } catch (err) {
